@@ -1,7 +1,7 @@
-import fs from "fs/promises";
-import path from "path";
-import os from "os";
-import crypto from "crypto";
+const fs = require("fs/promises");
+const path = require("path");
+const os = require("os");
+const crypto = require("crypto");
 
 /** @type {() => Promise<void>} */
 async function createNotarizationApiKeyFile() {
@@ -25,4 +25,4 @@ async function createNotarizationApiKeyFile() {
   }
 }
 
-export { createNotarizationApiKeyFile };
+module.exports = { createNotarizationApiKeyFile };

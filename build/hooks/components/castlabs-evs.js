@@ -1,14 +1,17 @@
 // sign the app so WidevineCDM can work
 // https://github.com/castlabs/electron-releases/wiki/EVS
 
-import process from "process";
-import { spawn } from "child_process";
+const process = require("process");
+const { spawn } = require("child_process");
+const path = require("path");
+const fs = require("fs");
 
-/** @type {(appOutDir: string) => Promise<void>} */
-async function signAppWithVMP(appOutDir) {
+/** @type {(appOutDir: string, productName?: string) => Promise<void>} */
+async function signAppWithVMP(appOutDir, productName = "Flow") {
   let signPath = null;
   if (process.platform === "darwin") {
-    signPath = appOutDir;
+    // On macOS, we need to sign the .app bundle
+    signPath = path.join(appOutDir, `${productName}.app`);
   } else if (process.platform === "win32") {
     signPath = appOutDir;
   }
@@ -54,4 +57,4 @@ async function signAppWithVMP(appOutDir) {
   }
 }
 
-export { signAppWithVMP };
+module.exports = { signAppWithVMP };

@@ -1,9 +1,9 @@
-import { signAppWithVMP } from "./components/castlabs-evs.js";
+const { signAppWithVMP } = require("./components/castlabs-evs.js");
 
 const vmpSignPlatforms = ["win32"];
 
 /** @type {(context: import("./types.js").PackContext) => void} */
-export async function handler(context) {
+async function handler(context) {
   // Header
   console.log("\n---------");
   console.log("Executing afterSign hook");
@@ -19,4 +19,4 @@ export async function handler(context) {
   console.log("---------\n");
 }
 
-export default handler;
+module.exports = handler;
