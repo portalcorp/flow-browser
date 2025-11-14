@@ -1,6 +1,6 @@
-import { signAppWithVMP } from "./components/castlabs-evs.js";
-import { createNotarizationApiKeyFile } from "./components/notarization.js";
-import { copyAssetsCar } from "./components/macos.js";
+const { signAppWithVMP } = require("./components/castlabs-evs.js");
+const { createNotarizationApiKeyFile } = require("./components/notarization.js");
+const { copyAssetsCar } = require("./components/macos.js");
 
 const vmpSignPlatforms = ["darwin"];
 

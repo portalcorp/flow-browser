@@ -1,8 +1,8 @@
-import path from "path";
-import fs from "fs/promises";
+const path = require("path");
+const fs = require("fs/promises");
 
 /** @type {(appOutDir: string) => Promise<void>} */
-export async function copyAssetsCar(appOutDir) {
+async function copyAssetsCar(appOutDir) {
   console.log("\nCopying Assets.car file for macOS");
 
   // Get the directory of the current project
@@ -34,3 +34,5 @@ export async function copyAssetsCar(appOutDir) {
     throw error;
   }
 }
+
+module.exports = { copyAssetsCar };
